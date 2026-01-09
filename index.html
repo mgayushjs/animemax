@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AnimeMax</title>
+
+<style>
+:root{
+  --glow:#ff9f1a;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color:var(--glow);
+  background: linear-gradient(120deg,#000,#1a0f00,#000);
+  background-size:300% 300%;
+  animation:bg 12s ease infinite;
+  overflow-x:hidden;
+}
+
+@keyframes bg{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* PARTICLES */
+.particle{
+  position:fixed;
+  width:4px;
+  height:4px;
+  background:rgba(255,159,26,.6);
+  border-radius:50%;
+  animation: floatUp linear infinite;
+  pointer-events:none;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(110vh);opacity:0}
+  10%{opacity:1}
+  to{transform:translateY(-10vh);opacity:0}
+}
+
+h1{
+  text-align:center;
+  padding:18px 10px 10px;
+  font-size:22px;
+  text-shadow:0 0 10px var(--glow),0 0 25px var(--glow);
+  animation:fadeIn .8s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(-10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.container{
+  padding:14px;
+  animation:fadeIn 1s ease;
+}
+
+/* GLASS BUTTON */
+.btn{
+  position:relative;
+  display:block;
+  text-decoration:none;
+  color:var(--glow);
+  border-radius:18px;
+  padding:15px;
+  margin:12px 0;
+  text-align:center;
+  font-size:16px;
+  background:rgba(0,0,0,.45);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,159,26,.4);
+  box-shadow:
+    0 0 12px rgba(255,159,26,.35),
+    inset 0 0 10px rgba(255,159,26,.15);
+  transition:.25s ease;
+  overflow:hidden;
+}
+
+/* RIPPLE */
+.btn::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center, rgba(255,255,255,.35), transparent 60%);
+  opacity:0;
+  transition:.3s;
+}
+
+.btn:active::after{opacity:1}
+
+.btn:hover{
+  background:rgba(255,159,26,.15);
+  box-shadow:
+    0 0 18px var(--glow),
+    0 0 35px rgba(255,159,26,.6);
+  transform:scale(1.03);
+}
+
+.btn:active{
+  transform:scale(.95);
+}
+
+/* FLOATING EFFECT */
+.btn{animation:float 5s ease-in-out infinite}
+.btn:nth-child(even){animation-delay:1.5s}
+.btn:nth-child(odd){animation-delay:3s}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-4px)}
+}
+</style>
+</head>
+
+<body>
+
+<h1>🔥 Explore Your Anime Multiverse</h1>
+
+<div class="container">
+
+<a class="btn" href="https://animesalt.cc/">AnimeSalt (BEST)</a>
+<a class="btn" href="https://watchanimeworld.in/">WatchAnimeWorld</a>
+<a class="btn" href="https://tv.garden/">TV Garden</a>
+<a class="btn" href="https://anikai.to/watch/">Anikai</a>
+<a class="btn" href="https://gogoanimez.to/">GogoAnime</a>
+<a class="btn" href="https://animefrenzy.cc/home">AnimeFrenzy</a>
+<a class="btn" href="https://animesuge.ba/">AnimeSuge</a>
+<a class="btn" href="https://www.miruro.to/">Miruro</a>
+<a class="btn" href="https://9anime.org.lv/">9Anime</a>
+<a class="btn" href="https://animedao.watch/home/">AnimeDao</a>
+<a class="btn" href="https://animedub.co/">AnimeDub</a>
+<a class="btn" href="https://kissanime.cfd/">KissAnime</a>
+<a class="btn" href="https://zoroto.com.in/">Zoroto</a>
+
+</div>
+
+<script>
+/* PARTICLES GENERATOR */
+for(let i=0;i<30;i++){
+  const p=document.createElement("div");
+  p.className="particle";
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(6+Math.random()*6)+"s";
+  p.style.opacity=Math.random();
+  p.style.width=p.style.height=(2+Math.random()*4)+"px";
+  document.body.appendChild(p);
+}
+</script>
+
+</body>
+</html>
